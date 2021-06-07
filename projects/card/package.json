@@ -1,5 +1,5 @@
 {
-  "name": "card-mtx",
+  "name": "card",
   "version": "1.0.1",
   "peerDependencies": {
     "@angular/animations": "~11.1.0",

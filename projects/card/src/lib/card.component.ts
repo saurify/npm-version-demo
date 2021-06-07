@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
   template: `
   <mat-form-field appearance="outline" style="width:40vw;">
     <mat-label>{{label}}</mat-label>
-    <input matInput [placeholder]="placeholder" [formcontrol]='value'>
+    <input matInput [placeholder]="placeholder" [formControl]='value'>
     <mat-icon matSuffix>{{suffix_text}}</mat-icon>
     <mat-hint>{{hint}}</mat-hint>
   </mat-form-field>
