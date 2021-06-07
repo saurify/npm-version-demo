@@ -8,7 +8,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon'
 import { ReactiveFormsModule } from '@angular/forms'
-import { CardModule } from 'card'
+import { CardModule } from 'card-mtx';
+
 @NgModule({
   declarations: [ContainerComponent],
   imports: [
