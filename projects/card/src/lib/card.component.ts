@@ -1,12 +1,14 @@
-import { HighContrastModeDetector } from '@angular/cdk/a11y';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
+
 
 @Component({
   selector: 'lib-card',
   template: `
-  <mat-form-field appearance="outline">
-    <mat-label>{{output}}</mat-label>
-    <input matInput [placeholder]="placeholder">
+  <mat-form-field appearance="outline" style="width:40vw;">
+    <mat-label>{{label}}</mat-label>
+    <input matInput [placeholder]="placeholder" [formcontrol]='value'>
     <mat-icon matSuffix>{{suffix_text}}</mat-icon>
     <mat-hint>{{hint}}</mat-hint>
   </mat-form-field>
@@ -15,12 +17,16 @@ import { Component, Input, OnInit } from '@angular/core';
   styles: [],
 })
 export class CardComponent implements OnInit {
-  value:any;
   @Input() placeholder:string="placeholder";
   @Input() suffix_text:string="home";
   @Input() hint: string="hint";
-  @Input() output:string= "output";
+  @Input() label:string= "label";
+  @Output() output = new EventEmitter<string>();
+  value:FormControl= new FormControl('')
+  
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.value.valueChanges.pipe(debounceTime(500)).subscribe((value) => this.output.emit(value));
+  }
 }
