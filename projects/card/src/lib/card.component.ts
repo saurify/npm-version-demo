@@ -1,36 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { HighContrastModeDetector } from '@angular/cdk/a11y';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-card',
   template: `
-    <mat-card class="example-card" style="max-width:400px;">
-      <mat-card-header>
-        <div
-          mat-card-avatar
-          class="example-header-image"
-          style="background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;"
-        ></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img
-        mat-card-image
-        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        alt="Photo of a Shiba Inu"
-      />
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz
-          breeds of dog from Japan. A small, agile dog that copes very well with
-          mountainous terrain, the Shiba Inu was originally bred for hunting.
-        </p>
-      </mat-card-content>
-    </mat-card>
+  <mat-form-field appearance="outline">
+    <mat-label>{{output}}</mat-label>
+    <input matInput [placeholder]="placeholder">
+    <mat-icon matSuffix>{{suffix_text}}</mat-icon>
+    <mat-hint>{{hint}}</mat-hint>
+  </mat-form-field>
+
   `,
   styles: [],
 })
 export class CardComponent implements OnInit {
+  value:any;
+  @Input() placeholder:string="placeholder";
+  @Input() suffix_text:string="home";
+  @Input() hint: string="hint";
+  @Input() output:string= "output";
   constructor() {}
 
   ngOnInit(): void {}
