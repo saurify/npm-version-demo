@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ContainerComponent } from './container.component';
-import { CardModule} from 'card'
+import { CardModule} from 'card-mtx'
 import { MatCardModule } from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
